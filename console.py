@@ -1,4 +1,4 @@
-#!/bin/usr/python3
+#!/usr/bin/python3
 '''building the console for command intepretation'''
 import cmd
 from cmd import Cmd
@@ -6,7 +6,7 @@ from cmd import Cmd
 class HBNBCommand(cmd.Cmd):
     ''' the command line intepreter
     '''''
-    prompt = '(hbnb)'
+    prompt = '(AirBnB)'
 
 
     def do_quit(self):
