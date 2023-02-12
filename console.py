@@ -4,8 +4,9 @@ import cmd
 
 class HBNBCommand(cmd.Cmd):
     ''' the command line intepreter
-    '''''
-    prompt = '(AirBnB)'
+    '''
+    prompt = '(hbnb)'
+    
 
     def do_create(self, args):
         """ create a new instance of a class and prints the id """
