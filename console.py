@@ -1,16 +1,28 @@
 #!/usr/bin/python3
 '''building the console for command intepretation'''
 import cmd
-from cmd import Cmd
 
 class HBNBCommand(cmd.Cmd):
     ''' the command line intepreter
     '''''
     prompt = '(AirBnB)'
 
+    def do_create(self, args):
+        """ create a new instance of a class and prints the id """
+        if len(args) == 0:
+            print("** class name missing **")
+        elif args not in classes:
+            print("** class doesn't exist **")
+        else:
+            for i in classes:
+                if i == args:
+                    a1 = str(args) + '()'
+                    a = eval(a1)
+            print(a.id)
+            a.save()
+        pass
 
-    def do_quit(self):
-       '''type quit and the program will close instantly'''
+    def do_quit(self, line):
        '''type quit and the program will close instantly'''
        return True
 
