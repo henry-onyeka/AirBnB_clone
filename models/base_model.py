@@ -6,13 +6,17 @@ from datetime import datetime
 import copy
 import models
 from models.__init__ import storage
+
+
 class BaseModel:
     ''' we are defining all common attributes/methods for other classes'''
 
     def __init__(self, *args, **kwargs):
         '''
-        created_at: datetime - assign with the current datetime when an instance is created
-updated_at: datetime - assign with the current datetime when an instance is created
+        created_at: datetime - assign with the current
+        datetime when an instance is created
+updated_at: datetime - assign with the current datetime
+when an instance is created
 and it will be updated every time you change your object
         strptime: converts the time into a string format
         '''
@@ -22,12 +26,12 @@ and it will be updated every time you change your object
 
         if kwargs:
             pattern = '%Y-%m-%dT%H:%M:%S.%f'
-            for key,value in kwargs.items():
+            for key, value in kwargs.items():
                 if key == "id":
                     self.id = value
                     continue
                 if key == 'created_at':
-                    self.created_at = datetime.strptime(value,pattern)
+                    self.created_at = datetime.strptime(value, pattern)
                     continue
 
                 if key == 'updated_at':
@@ -63,8 +67,3 @@ and it will be updated every time you change your object
             dictnew['updated_at'] = self.updated_at.strftime(pattern_1)
             dictnew['id'] = self.id
             return dictnew
-
-tem = BaseModel('life','bear', {'id' : 'small'})
-brad = BaseModel('gulder','bear', siz = 'sbi')
-#print(tem.id,tem.created_at)
-#print(brad.id, brad.created_at)
