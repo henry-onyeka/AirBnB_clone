@@ -29,7 +29,8 @@ class TestBaseModelInstance(unittest.TestCase):
         self.assertNotIn(self.my_model.id, self.ids, "id not unique")
 
     def test_unique_created_at(self):
-        self.assertLess(self.my_model.created_at, self.my_model2.created_at, "Time my_model was greated should be less than that of my_model2")
+        self.assertLess(self.my_model.created_at, self.my_model2.created_at, "Time my_model was greated"
+                                                                             " should be less than that of my_model2")
 
     def test_save(self):
         updated_at1 = self.my_model.updated_at
