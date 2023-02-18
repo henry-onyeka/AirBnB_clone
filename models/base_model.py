@@ -17,22 +17,14 @@ class BaseModel:
         self.updated_at = self.created_at
 
         if kwargs:
-            form = "%Y-%m-%dT%H:%M:%S.%f"
-            for key, value in kwargs.items():
-                if key == "id":
-                    self.id = value
-                    continue
-                if key == "created_at":
-                    self.created_at = dt.strptime(value, form)
-                    continue
-                if key == "updated_at":
-                    self.updated_at = dt.strptime(value, form)
-                    continue
-                if key != "__class__":
-                    setattr(self, key, value)
+            for key in kwargs:
+                if key in ["created_at",
+                           "updated_at"]:
+                    self.__dict__[key] = dt.strptime(kwargs[key], "%Y-%m-%dT%H"
+                                                                  ":%M:%S.%f")
+                else:
+                    self.__dict__[key] = kwargs[key]
         else:
-            self.id = str(uuid4())
-            self.created_at = dt.now()
             models.storage.new(self)
 
     def __str__(self):
