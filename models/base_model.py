@@ -4,28 +4,16 @@ class to define all class and models
 '''
 from uuid import uuid4
 from datetime import datetime as dt
-import models
 
 
 class BaseModel:
     '''method definition for other classes'''
 
-    def __init__(self, *args, **kwargs):
+    def __init__(self):
         '''initialisation'''
         self.id = str(uuid4())
         self.created_at = dt.now()
         self.updated_at = self.created_at
-
-        if kwargs:
-            for key in kwargs:
-                if key in ["created_at",
-                           "updated_at"]:
-                    self.__dict__[key] = dt.strptime(kwargs[key], "%Y-%m-%dT%H"
-                                                                  ":%M:%S.%f")
-                else:
-                    self.__dict__[key] = kwargs[key]
-        else:
-            models.storage.new(self)
 
     def __str__(self):
         '''string rep'''
