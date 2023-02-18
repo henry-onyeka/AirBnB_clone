@@ -5,6 +5,7 @@ class to define all class and models
 from uuid import uuid4
 from datetime import datetime as dt
 
+
 class BaseModel:
     '''method definition for other classes'''
 
@@ -16,7 +17,8 @@ class BaseModel:
 
     def __str__(self):
         '''string rep'''
-        return '[{}] ({}) {}'.format(self.__class__.__name__, self.id, self.__dict__)
+        return '[{}] ({}) {}'.format(
+            self.__class__.__name__, self.id, self.__dict__)
 
     def save(self):
         '''saving updates'''
@@ -29,4 +31,3 @@ class BaseModel:
         copy_dict["created_at"] = self.created_at.isoformat()
         copy_dict["updated_at"] = self.updated_at.isoformat()
         return copy_dict
-
