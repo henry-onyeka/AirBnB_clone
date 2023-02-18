@@ -6,18 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="8c0910a0-e478-4112-a107-8652f904a2e6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/console.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/amenity.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/base_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/base_model.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/city.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/engine/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/engine/file_storage.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/place.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/review.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/state.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/user.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pycheck.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
