@@ -6,6 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="8c0910a0-e478-4112-a107-8652f904a2e6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/engine/file_storage.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/engine/file_storage.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_models/test_amenity.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_models/test_amenity.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_models/test_base_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_models/test_base_model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_models/test_engine/test_file_storage.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_models/test_engine/test_file_storage.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
