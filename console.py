@@ -145,7 +145,7 @@ class HBNBCommand(cmd.Cmd):
         for i, word in enumerate(splitted):
             if i < arg_num:
                 sliced[i] = word
-        # returns splitted list        
+        # returns splitted list 
         return sliced
 
     def do_update(self, line):
@@ -158,14 +158,14 @@ class HBNBCommand(cmd.Cmd):
         cls, idd, attr, val = HBNBCommand.my_split(line, " ", 4)
         objects = models.storage.all().values()
         ids = [i.id for i in objects]
-      
+
 
         if cls not in self.clas:
             print("** class doesn't exist **")
         elif idd is None:
             print("** instance id missing **")
         elif idd not in ids:
-            print("** no instance found **")    
+            print("** no instance found **")
         elif attr is None:
             print("** attribute name missing **")
         elif val is None:
