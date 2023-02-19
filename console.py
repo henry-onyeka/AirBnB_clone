@@ -3,7 +3,6 @@
 This is the console
 """
 
-
 import cmd
 import os
 import models
@@ -15,7 +14,7 @@ from models.city import City
 from models.amenity import Amenity
 from models.place import Place
 from models.review import Review
-#from colorama import Fore
+# from colorama import Fore
 
 
 class HBNBCommand(cmd.Cmd):
@@ -40,8 +39,7 @@ class HBNBCommand(cmd.Cmd):
             try:
                 print(eval("self.do_{}.__doc__".format(arg)))
             except AttributeError:
-                print('({}{}) command does not exist'.format(
-                    Fore.RED + "ERROR", Fore.RESET))
+                print('(ERROR): command does not exist')
                 return
         else:
             return super().do_help(arg)
@@ -235,5 +233,7 @@ class HBNBCommand(cmd.Cmd):
                 rest = params.groups()[1].split(", ")
                 commands[args[1]](args[0] + " " + params.groups()[0] + " " +
                                   rest[0] + " " + rest[1])
+
+
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
