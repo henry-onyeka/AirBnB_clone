@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-"""This is the console"""
+"""
+This is the console
+"""
 
 
 import cmd
@@ -13,7 +15,7 @@ from models.city import City
 from models.amenity import Amenity
 from models.place import Place
 from models.review import Review
-from colorama import Fore
+# from colorama import Fore
 
 
 class HBNBCommand(cmd.Cmd):
@@ -234,4 +236,4 @@ class HBNBCommand(cmd.Cmd):
                 commands[args[1]](args[0] + " " + params.groups()[0] + " " +
                                   rest[0] + " " + rest[1])
 if __name__ == '__main__':
-        HBNBCommand().cmdloop()
+    HBNBCommand().cmdloop()
