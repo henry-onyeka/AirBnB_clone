@@ -15,6 +15,7 @@ from models.place import Place
 from models.review import Review
 from colorama import Fore
 
+
 class HBNBCommand(cmd.Cmd):
     """Console"""
 
@@ -27,7 +28,7 @@ class HBNBCommand(cmd.Cmd):
             'Place',
             'Review'
             }
-    
+
     prompt = '({}{}) '.format(Fore.GREEN + "HBNB", Fore.RESET)
 
     def do_help(self, arg):
@@ -36,7 +37,8 @@ class HBNBCommand(cmd.Cmd):
             try:
                 print(eval("self.do_{}.__doc__".format(arg)))
             except AttributeError:
-                print('({}{}) command does not exist'.format(Fore.RED + "ERROR", Fore.RESET))
+                print('({}{}) command does not exist'.format(
+                    Fore.RED + "ERROR", Fore.RESET))
                 return
         else:
             return super().do_help(arg)
@@ -84,7 +86,7 @@ class HBNBCommand(cmd.Cmd):
         if cls in self.clas:
             if idd != "":
                 objs = models.storage.all()
-                for obj in objs.values(): 
+                for obj in objs.values():
                     if obj.__class__.__name__ == cls:
                         if idd == obj.id:
                             print(obj)
@@ -105,7 +107,7 @@ class HBNBCommand(cmd.Cmd):
             cls, idd = str(line).split()
         except ValueError:
             cls, idd = line, ""
-        
+
         if cls in self.clas:
             if idd != "":
                 objs = models.storage.all()
