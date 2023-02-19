@@ -15,7 +15,7 @@ from models.city import City
 from models.amenity import Amenity
 from models.place import Place
 from models.review import Review
-from colorama import Fore
+#from colorama import Fore
 
 
 class HBNBCommand(cmd.Cmd):
@@ -31,7 +31,8 @@ class HBNBCommand(cmd.Cmd):
             'Review'
             }
 
-    prompt = '({}{}) '.format(Fore.GREEN + "hbnb", Fore.RESET)
+    prompt = '(hbnb) '
+    # .format(Fore.GREEN + "hbnb", Fore.RESET)
 
     def do_help(self, arg):
         """I tell you what commands do"""
