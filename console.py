@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 """This is the console"""
 
 
@@ -235,5 +235,5 @@ class HBNBCommand(cmd.Cmd):
                                   rest[0] + " " + rest[1])
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     HBNBCommand().cmdloop()
