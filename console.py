@@ -233,7 +233,5 @@ class HBNBCommand(cmd.Cmd):
                 rest = params.groups()[1].split(", ")
                 commands[args[1]](args[0] + " " + params.groups()[0] + " " +
                                   rest[0] + " " + rest[1])
-
-
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
