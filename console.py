@@ -159,7 +159,6 @@ class HBNBCommand(cmd.Cmd):
         objects = models.storage.all().values()
         ids = [i.id for i in objects]
 
-
         if cls not in self.clas:
             print("** class doesn't exist **")
         elif idd is None:
@@ -188,7 +187,6 @@ class HBNBCommand(cmd.Cmd):
             print(counter)
         else:
             print("** no instance found **")
-        
 
     def default(self, line: str):
 
