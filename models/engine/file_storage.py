@@ -1,51 +1,40 @@
-
-# !/usr/bin/python3
-"""Inside the file_storage module."""
+#!/usr/bin/env python3
+"""FileStorage Class"""
 import json
 from models.base_model import BaseModel
 from models.user import User
-from models.state import State
+from models.amenity import Amenity
 from models.city import City
 from models.place import Place
-from models.amenity import Amenity
 from models.review import Review
-
+from models.state import State
 
 class FileStorage:
-    """Inside the FileStorage class.
-    Attrs:
-        __file_path (str): Path to json file.
-        __objects (dict): Dict to store objs.
-    """
 
-    __file_path = 'file.json'
+    __file_path = "file.json"
     __objects = {}
 
     def all(self):
-        """Returns __objects"""
         return self.__objects
-
+    
     def new(self, obj):
-        """sets in __objects the obj with key <obj class name>.id"""
-        name = obj.__class__.__name__
-        FileStorage.__objects["{}.{}".format(name, obj.id)] = obj
-
+        self.__objects["{}.{}".format(obj.__class__.__name__, obj.id)] = obj
+    
     def save(self):
-        """erializes __objects to the JSON file (path: __file_path)"""
-        my_dict = FileStorage.__objects
-        new_dict = {key: my_dict[key].to_dict() for key in my_dict}
-        with open(FileStorage.__file_path, "w") as file:
-            json.dump(new_dict, file)
+        new_dict = {}
+
+        for key, obj in self.__objects.items():
+            new_dict[key] = obj.to_dict()
+
+        with open(self.__file_path, "w+") as f:
+            json.dump(new_dict, f, indent=2)
 
     def reload(self):
-        """deserializes the JSON file to __objects
-         (only if the JSON file (__file_path) exists."""
         try:
-            with open(FileStorage.__file_path) as file:
-                my_dict = json.load(file)
-                for v in my_dict.values():
-                    name_cls = v['__class__']
-                    del v['__class__']
-                    self.new(eval(name_cls)(**v))
-        except FileNotFoundError:
-            return
+            with open(self.__file_path, "r") as f:
+                obj = json.load(f)
+            for value in obj.values():
+                cls = value["__class__"]
+                self.new(eval(cls)(**value))
+        except Exception:
+            pass

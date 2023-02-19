@@ -1,10 +1,7 @@
-#!/usr/bin/python3
-""" City class """
+#!/usr/bin/env python3
 
 from models.base_model import BaseModel
 
-
 class City(BaseModel):
-    """ class attributes """
-    name = ""
     state_id = ""
+    name = ""

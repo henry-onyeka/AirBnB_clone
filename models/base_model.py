@@ -1,53 +1,44 @@
-#!/usr/bin/python3
-'''
-class to define all class and models
-'''
-from uuid import uuid4
-from datetime import datetime as dt
-import models
+#!/usr/bin/env python3
+"""This is the basemodel class"""
 
+from datetime import datetime
+import models
+import uuid
 
 class BaseModel:
-    '''method definition for other classes'''
+    """BaseModel Class"""
 
     def __init__(self, *args, **kwargs):
-        '''initialisation'''
-        self.id = str(uuid4())
-        self.created_at = dt.now()
-        self.updated_at = self.created_at
+        """initialization class"""
 
         if kwargs:
-            form = "%Y-%m-%dT%H:%M:%S.%f"
             for key, value in kwargs.items():
-                if key == "id":
-                    self.id = value
-                    continue
-                if key == "created_at":
-                    self.created_at = dt.strptime(value, form)
-                    continue
-                if key == "updated_at":
-                    self.updated_at = dt.strptime(value, form)
-                    continue
-                if key != "__class__":
-                    setattr(self, key, value)
+                if key == "__class__":
+                    pass
+                elif key in ("created_at", "updated_at"):
+                    self.__dict__[key] = datetime.strptime(
+                            value, "%Y-%m-%dT%H:%M:%S.%f")
+                else:
+                    self.__dict__[key] = value
         else:
-            self.id = str(uuid4())
-            self.created_at = dt.now()
+            self.id = str(uuid.uuid4())
+            self.created_at = datetime.now()
+            self.updated_at = datetime.now()
             models.storage.new(self)
 
     def __str__(self):
-        '''string rep'''
-        return '[{}] ({}) {}'.format(
-            self.__class__.__name__, self.id, self.__dict__)
+        """handles string representation of class"""
+        return "[{}] ({}) {}".format(self.__class__.__name__, self.id, self.__dict__)
 
     def save(self):
-        '''saving updates'''
-        self.updated_at = dt.now()
+        """saves change to basemodel"""
+        self.updated_at = datetime.now()
+        models.storage.save()
 
     def to_dict(self):
-        '''dictionary rep'''
-        copy_dict = self.__dict__.copy()
-        copy_dict["__class__"] = self.__class__.__name__
-        copy_dict["created_at"] = self.created_at.isoformat()
-        copy_dict["updated_at"] = self.updated_at.isoformat()
-        return copy_dict
+        """converst instance data into dictionary"""
+        diction = self.__dict__.copy()
+        diction['created_at'] = diction['created_at'].isoformat()
+        diction['updated_at'] = diction['updated_at'].isoformat()
+        diction['__class__'] = self.__class__.__name__
+        return diction
