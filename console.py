@@ -145,7 +145,7 @@ class HBNBCommand(cmd.Cmd):
         for i, word in enumerate(splitted):
             if i < arg_num:
                 sliced[i] = word
-        # returns splitted list 
+
         return sliced
 
     def do_update(self, line):
@@ -177,8 +177,8 @@ class HBNBCommand(cmd.Cmd):
                         val.replace("\"", "")
                     setattr(obj, attr, val)
                     models.storage.save()
-    
-    def do_count(self,line):
+
+    def do_count(self, line):
         objs = models.storage.all()
         if line in self.clas:
             counter = 0
