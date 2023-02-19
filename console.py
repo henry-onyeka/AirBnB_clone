@@ -29,7 +29,7 @@ class HBNBCommand(cmd.Cmd):
             'Review'
             }
 
-    prompt = '({}{}) '.format(Fore.GREEN + "HBNB", Fore.RESET)
+    prompt = '({}{}) '.format(Fore.GREEN + "hbnb", Fore.RESET)
 
     def do_help(self, arg):
         """I tell you what commands do"""
