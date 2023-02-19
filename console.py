@@ -83,7 +83,6 @@ class HBNBCommand(cmd.Cmd):
         except ValueError:
             cls, idd = line, ""
 
-        
         if idd[0] == "\"" and idd[-1] == "\"":
             idd = idd.replace("\"", "")
 
@@ -111,7 +110,7 @@ class HBNBCommand(cmd.Cmd):
             cls, idd = str(line).split()
         except ValueError:
             cls, idd = line, ""
- 
+
         if idd[0] == "\"" and idd[-1] == "\"":
             idd = idd.replace("\"", "")
 
@@ -166,9 +165,6 @@ class HBNBCommand(cmd.Cmd):
         objects = models.storage.all().values()
         ids = [i.id for i in objects]
 
-        if idd[0] == "\"" and idd[-1] == "\"":
-            idd = idd.replace("\"", "")
-
         if cls not in self.clas:
             print("** class doesn't exist **")
         elif idd is None:
@@ -180,6 +176,9 @@ class HBNBCommand(cmd.Cmd):
         elif val is None:
             print("** value missing **")
         else:
+            if idd[0] == "\"" and idd[-1] == "\"":
+                idd = idd.replace("\"", "")
+
             for obj in objects:
                 if idd == obj.id:
                     if obj.__class__.__name__ == cls:
