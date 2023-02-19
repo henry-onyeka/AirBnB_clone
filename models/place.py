@@ -1,8 +1,11 @@
 #!/usr/bin/python3
+"""PLace Class"""
 
 from models.base_model import BaseModel
 
+
 class Place(BaseModel):
+    """class"""
     city_id = ""
     user_id = ""
     name = ""
