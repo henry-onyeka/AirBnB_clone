@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+"""This is the console"""
+
+
 import cmd
 import os
 import models
@@ -13,6 +16,7 @@ from models.review import Review
 from colorama import Fore
 
 class HBNBCommand(cmd.Cmd):
+    """Console"""
 
     clas = {
             'BaseModel',
@@ -132,6 +136,7 @@ class HBNBCommand(cmd.Cmd):
 
     @staticmethod
     def my_split(input_str, delimeter, arg_num):
+        """splits the arguments"""
         splitted = str(input_str).split(delimeter)
 
         sliced = [None] * arg_num
